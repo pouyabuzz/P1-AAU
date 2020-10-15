@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void bmi_cal (double *bmi, double height, double weight);
+
+int main (){
+   
+    double height;
+    double weight;
+    double bmi;
+    
+    printf("Enter your height in meter: ");
+    scanf("%lf", &height);
+    printf("Enter your weight in kilogram: ");
+    scanf("%lf", &weight);
+
+    bmi_cal(&bmi, height, weight);
+
+    printf("Your BMI is: %f", bmi);
+
+    return 0;
+}
+
+void bmi_cal (double *bmi, double height, double weight){
+    
+        *bmi = weight / (height * height);
+}
