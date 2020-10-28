@@ -75,6 +75,7 @@
             printf("Based on your BMI, which is %f, and the fact that you wish to gain weight.\n", bmi);
             gain();
         }
+//test
 
     }
     void lose (){
