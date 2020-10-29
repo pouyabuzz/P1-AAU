@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-//Inits
 
     void man_or_woman (void);
     void bmicalculator (void);
