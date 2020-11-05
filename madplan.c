@@ -58,24 +58,39 @@
         }
     }
     void purpose () {
+        do
+        {
         printf("Insert 1 if you wish to lose weight.\n");
         printf("Insert 2 if you wish to maintain your weight.\n");
         printf("Insert 3 if you wish to gain more weight.\n");
         scanf("%d", &goal);
-        if (goal == 1) {
+        
+       
+        switch (goal)
+        {
+        case 1:
             printf("Based on your BMI, which is %f, and the fact that you wish to lose weight.\n", bmi);
             lose();
-        }
-
-        else if (goal == 2) {
+            break;
+        
+        case 2:
             printf("Based on your BMI, which is %f, and the fact that you wish to maintain weight.\n", bmi);
             maintain();
-        }
-        else if (goal == 3) {
+            break;
+
+        case 3:
             printf("Based on your BMI, which is %f, and the fact that you wish to gain weight.\n", bmi);
             gain();
+            break;
+
+        default:
+
+            break;
         }
+        } while (goal != 1 && goal != 2 && goal != 3)
+        
     }
+
     void lose (){
         if (bmi<=20) {
             intake = 15000 - kcal;
