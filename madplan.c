@@ -11,6 +11,7 @@
     void maintain (void);
     void lose (void);
 
+//test
     int gender, goal, age, ok;
     double weight, height, bmi, intake, kcal;
 
