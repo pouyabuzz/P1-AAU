@@ -24,7 +24,7 @@ void run_program (){
     man_or_woman (&gender, &age, &weight, &height);
     bmi_calculator (weight, height);
     bmr_calculator (gender, &bmr, weight, height, age);
-    /*activity (&activity_level);*/
+    activity (&activity_level);
     consumption_func (bmr, &consumption, activity_level);
     mealplan (consumption);
 
@@ -67,7 +67,47 @@ void run_program (){
         
     }
 
-    //Activity Level Function
+    void activity (double *activity_level){
+
+    int x;
+
+    printf("What is your activity level?\n\n");
+    printf("None or very little activity:                  type 1\n");
+    printf("Little physical activity - 1-3 times a week:   type 2\n");
+    printf("Moderate physical activity - 3-5 times a week: type 3\n");
+    printf("Hard physical activity - 6-7 times a week:     type 4\n");
+    printf("Very hard physical activity - 2 times a day:   type 5\n");
+    scanf("%d", &x);
+
+    switch (x){
+
+        case 1:
+            *activity_level = 1.2;
+        
+            break;
+
+        case 2:
+           *activity_level = 1.375;
+
+            break;
+
+        case 3: 
+            *activity_level = 1.55;
+
+            break;
+
+        case 4: 
+            *activity_level = 1.725;
+
+            break;
+
+        case 5: 
+            *activity_level = 1.9;
+
+            break;
+    
+    }
+}
 
                         /*void purpose (int *goal, double *bmi, double *consumption, double *kcal) {
                             printf("Insert 1 if you wish to lose weight.\n");
