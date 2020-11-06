@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-
+//test
 void run_program ();
 void man_or_woman (int *gender, int *age, double *weight, double *height); 
 void bmi_calculator (double weight, double height);
