@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 
 void run_program();
@@ -44,63 +45,69 @@ void man_or_woman(int *gender, int *age, double *weight, double *height) {
     int rtn = 0;
 
     do {
-        printf("Insert 1 if you are a woman, or insert 2 if you are a man\n");
-        rtn = scanf(" %d", gender);
+        for(;;) {
+            printf("Insert 1 if you are a woman, or insert 2 if you are a man\n");
+            rtn = scanf(" %d", gender);
 
-        if (rtn == 0) {
-           /* fputs("\nerror: invalid integer input.\n", stderr);*/
-            empty_stdin();
-        } 
-        else {
-            empty_stdin();
-        break;
+            if (rtn == 0) {
+                /* fputs("\nerror: invalid integer input.\n", stderr);*/
+                empty_stdin();
+            } 
+            else {
+                empty_stdin();
+                break;
+            }
         }
+    } while (*gender < 1 || *gender > 2);
     
-    } while (!(*gender == 1) || !(*gender == 2));
-    
-    for(;;) {
-        printf("What is your weight?\n");
-        rtn = scanf("%lf", weight);
+    do {
+        for(;;) {
+            printf("What is your weight?\n");
+            rtn = scanf(" %lf", weight); 
+                
 
-        if (rtn == 0) {
-            /*fputs("\nerror: invalid integer input.\n", stderr);*/
-            empty_stdin();
-        } 
-        else {
-            empty_stdin();
-            break;
+            if (rtn == 0) {
+                /*fputs("\nerror: invalid integer input.\n", stderr);*/
+                empty_stdin();
+            } 
+            else {
+                empty_stdin();
+                break;
+            }   
         }
-    }
+    } while (*weight < 0);
 
-     for(;;) {
-        printf("What is your height?\n");
-        rtn = scanf("%lf", height);
+    do {
+        for(;;) {
+            printf("What is your height?\n");
+            rtn = scanf("%lf", height);
 
-        if (rtn == 0) {
-            /*fputs("\nerror: invalid integer input.\n", stderr);*/
-            empty_stdin();
-        } 
-        else {
-            empty_stdin();
-            break;
+            if (rtn == 0) {
+                /*fputs("\nerror: invalid integer input.\n", stderr);*/
+                empty_stdin();
+            } 
+            else {
+                empty_stdin();
+                break;
+            }
         }
-    }
+    } while (*height < 0);
 
+    do {
+        for(;;) {
+            printf("What is your age?\n");
+            rtn = scanf("%d", age);
 
-    for(;;) {
-        printf("What is your age?\n");
-        rtn = scanf("%d", age);
-
-        if (rtn == 0) {
-            /*fputs("\nerror: invalid integer input.\n", stderr);*/
-            empty_stdin();
-        } 
-        else {
-            empty_stdin();
-            break;
+            if (rtn == 0) {
+                /*fputs("\nerror: invalid integer input.\n", stderr);*/
+                empty_stdin();
+            } 
+            else {
+                empty_stdin();
+                break;
+            }
         }
-    }
-    
+    } while (*age < 0);
 }
 
 void bmi_calculator(double weight, double height) {
@@ -122,25 +129,26 @@ void bmr_calculator(int gender, double *bmr, double weight, double height, int a
 void activity(double *activity_level) {
 
     int choice, rtn = 0;
+    do {
+        for(;;) {
+            printf("What is your activity level?\n\n");
+            printf("None or very little activity:                  type 1\n");
+            printf("Little physical activity - 1-3 times a week:   type 2\n");
+            printf("Moderate physical activity - 3-5 times a week: type 3\n");
+            printf("Hard physical activity - 6-7 times a week:     type 4\n");
+            printf("Very hard physical activity - 2 times a day:   type 5\n");
+            rtn = scanf("%d", &choice);
 
-    for(;;) {
-        printf("What is your activity level?\n\n");
-        printf("None or very little activity:                  type 1\n");
-        printf("Little physical activity - 1-3 times a week:   type 2\n");
-        printf("Moderate physical activity - 3-5 times a week: type 3\n");
-        printf("Hard physical activity - 6-7 times a week:     type 4\n");
-        printf("Very hard physical activity - 2 times a day:   type 5\n");
-        rtn = scanf("%d", &choice);
-
-        if (rtn == 0) {
-            /*fputs("\nerror: invalid integer input.\n", stderr);*/
-            empty_stdin();
-        } 
-        else {
-            empty_stdin();
-            break;
+            if (rtn == 0) {
+                /*fputs("\nerror: invalid integer input.\n", stderr);*/
+                empty_stdin();
+            } 
+            else {
+                empty_stdin();
+                break;
+            }
         }
-    }
+    } while (choice < 1 || choice > 5);    
 
     switch (choice) {
 
@@ -170,21 +178,23 @@ void consumption_func(double bmr, int *consumption, double activity_level) {
 
     int goal, rtn = 0;
 
-    for(;;) {
-        printf("Insert 1 if you wish to lose weight.\n");
-        printf("Insert 2 if you wish to maintain your weight.\n");
-        printf("Insert 3 if you wish to gain more weight.\n");
-        rtn = scanf("%d", &goal);
+    do {
+        for(;;) {
+            printf("Insert 1 if you wish to lose weight.\n");
+            printf("Insert 2 if you wish to maintain your weight.\n");
+            printf("Insert 3 if you wish to gain more weight.\n");
+            rtn = scanf("%d", &goal);
 
-        if (rtn == 0) {
-            /*fputs("\nerror: invalid integer input.\n", stderr);*/
-            empty_stdin();
-        } 
-        else {
-            empty_stdin();
-            break;
+            if (rtn == 0) {
+                /*fputs("\nerror: invalid integer input.\n", stderr);*/
+                empty_stdin();
+            } 
+            else {
+                empty_stdin();
+                break;
+            }
         }
-    }
+    } while (goal < 1 || goal > 3);    
 
     switch (goal) {
 
