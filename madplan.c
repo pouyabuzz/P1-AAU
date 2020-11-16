@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//test
 
 void run_program();
 void empty_stdin (); 
@@ -33,7 +34,7 @@ void run_program() {
 
 void empty_stdin () { /* simple helper-function to empty stdin */
 
-    int c = getchar();
+    char c = getchar();
 
     while (c != '\n') {
         c = getchar();
