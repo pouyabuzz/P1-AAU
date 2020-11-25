@@ -1,0 +1,11 @@
+void dinner_meal(int consumption);
+void toast();
+void wrap();
+void chorizo();
+void shrimp();
+void quesadilla();
+void sausage();
+void buffalo();
+void bbqq();
+void beef();
+void mealplan();
