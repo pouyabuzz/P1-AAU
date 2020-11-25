@@ -1,5 +1,5 @@
 
-void lunch_meal(int consumption);
+int lunch_meal(int consumption);
 
 void cottage_cheese_and_raspberries();
 

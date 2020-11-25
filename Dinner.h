@@ -1,4 +1,4 @@
-void dinner_meal(int consumption);
+int dinner_meal(int consumption);
 void toast();
 void wrap();
 void chorizo();

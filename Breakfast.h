@@ -1,4 +1,4 @@
-void breakfast_meal(int consumption);
+int breakfast_meal(int consumption);
 void cinnamon();
 void onion();
 void vanilla();
