@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 // recipes is from eatthismuch.com
 // lunch low kcal: 200 - 500 kcal, lunch medium kcal: 500 - 800 kcal, lunch high
 // kcal: 800 - 1500 kcal
@@ -63,62 +62,61 @@ int lunch_meal(int consumption) {
 
     if (consumption <= 500) {
         l = (lunch_low_kcal)(rand() % 3);
+        switch (l) {
+            case cottage_cheese_and_raspberries1:
+                cottage_cheese_and_raspberries();
+                consumption -= 389;
+                break;
+
+            case cucumber_avocado_salad1:
+                cucumber_avocado_salad();
+                consumption -= 275;
+                break;
+
+            case curry_tuna_salad1:
+                curry_tuna_salad();
+                consumption -= 227;
+                break;
+        }
     } else if (consumption <= 1200) {
         m = (lunch_med_kcal)(rand() % 3);
+        switch (m) {
+            case peanut_butter_yogurt1:
+                peanut_butter_yogurt();
+                consumption -= 690;
+                break;
+
+            case turkey_sandwiches1:
+                turkey_sandwiches();
+                consumption -= 524;
+                break;
+
+            case ham_and_salami_rollups1:
+                ham_and_salami_rollups();
+                consumption -= 509;
+                break;
+        }
+
     } else {
         h = (lunch_high_kcal)(rand() % 3);
+        switch (h) {
+            case almond_mango_protein_shake1:
+                almond_mango_protein_shake();
+                consumption -= 911;
+                break;
+
+            case apricot_jam_and_almond_butter_sandwich1:
+                apricot_jam_and_almond_butter_sandwich();
+                consumption -= 875;
+                break;
+
+            case roast_beef_and_cheddar_sandwich1:
+                roast_beef_and_cheddar_sandwich();
+                consumption -= 900;
+                break;
+        }
     }
 
-    switch (l) {
-        case cottage_cheese_and_raspberries1:
-            cottage_cheese_and_raspberries();
-            consumption -= 389;
-            break;
-
-        case cucumber_avocado_salad1:
-            cucumber_avocado_salad();
-            consumption -= 275;
-            break;
-
-        case curry_tuna_salad1:
-            curry_tuna_salad();
-            consumption -= 227;
-            break;
-    }
-
-    switch (m) {
-        case peanut_butter_yogurt1:
-            peanut_butter_yogurt();
-            consumption -= 690;
-            break;
-
-        case turkey_sandwiches1:
-            turkey_sandwiches();
-            consumption -= 524;
-            break;
-
-        case ham_and_salami_rollups1:
-            ham_and_salami_rollups();
-            consumption -= 509;
-            break;
-    }
-
-    switch (h) {
-        case almond_mango_protein_shake1:
-            almond_mango_protein_shake();
-            consumption -= 911;
-            break;
-
-        case apricot_jam_and_almond_butter_sandwich1:
-            apricot_jam_and_almond_butter_sandwich();
-            consumption -= 875;
-            break;
-
-        case roast_beef_and_cheddar_sandwich1:
-            roast_beef_and_cheddar_sandwich();
-            consumption -= 900;
-            break;
-    }
     return consumption;
 }
 
