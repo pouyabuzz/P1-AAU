@@ -23,80 +23,86 @@ typedef enum { Banana, Vegan, Breakfast_quesadillas } breakfast_high_kcal;
 
 int breakfast_meal(int consumption) {
     breakfast_low_kcal l;
-    breakfast_med_kcal m;
+    breakfast_med_kcal m = 0;
     breakfast_high_kcal h;
     srand(time(NULL));
 
     if (consumption <= 500) {
         l = (breakfast_low_kcal)(rand() % 3);
+        switch (l) {
+            case Cinnamon:
+                printf("***  Cinnamon Protein Oats - 260 kcal  ***\n\n");
+                cinnamon();
+                consumption = 260;
+                break;
+
+            case Onion:
+                printf("***  Onion and Tomato Omelet - 300 kcal ***\n\n");
+                onion();
+                consumption = 300;
+                break;
+
+            case Vanilla:
+                printf("***  Vanilla Walnut Blueberry Yogurt - 485 kcal  ***\n\n");
+                vanilla();
+                consumption = 485;
+                break;
+        }
+
     } else if (consumption <= 1200) {
         m = (breakfast_med_kcal)(rand() % 3);
+        switch (m) {
+            case Scramble:
+                printf("***  Spinach Scramble - 388 kcal  ***\n\n");
+                scramble();
+                consumption = 388;
+                break;
+
+            case Feta_omelet:
+                printf(
+                    "***  Broccoli & Feta Omelet with Toast - 398 kcal  ***\n\n");
+                feta_omelet();
+                consumption = 398;
+                break;
+
+            case Banana_pancakes:
+                printf("***  Banana Pancakes - 755 kcal  ***\n\n");
+                banana_pancakes();
+                consumption = 755;
+                break;
+        }
+
     } else {
         h = (breakfast_high_kcal)(rand() % 3);
+        switch (h) {
+            case Banana:
+                printf(
+                    "***  Banana and Peanut Butter Swirl Muffins - 1653 kcal  "
+                    "***\n\n");
+                banana();
+                consumption = 1653;
+                break;
+
+            case Vegan:
+                printf("***  Vegan Protein Burrito - 1357 kcal  ***\n\n");
+                vegan();
+                consumption = 1357;
+                break;
+
+            case Breakfast_quesadillas:
+                printf("***  To-Go Breakfast Quesadillas - 1254 kcal  ***\n\n");
+                breakfast_quesadillas();
+                consumption = 1254;
+                break;
+        }
+
     }
 
-    switch (l) {
-        case Cinnamon:
-            printf("***  Cinnamon Protein Oats - 260 kcal  ***\n\n");
-            cinnamon();
-            consumption = 260;
-            break;
+    
 
-        case Onion:
-            printf("***  Onion and Tomato Omelet - 300 kcal ***\n\n");
-            onion();
-            consumption = 300;
-            break;
+    
 
-        case Vanilla:
-            printf("***  Vanilla Walnut Blueberry Yogurt - 485 kcal  ***\n\n");
-            vanilla();
-            consumption = 485;
-            break;
-    }
-
-    switch (m) {
-        case Scramble:
-            printf("***  Spinach Scramble - 388 kcal  ***\n\n");
-            scramble();
-            consumption = 388;
-            break;
-
-        case Feta_omelet:
-            printf(
-                "***  Broccoli & Feta Omelet with Toast - 398 kcal  ***\n\n");
-            feta_omelet();
-            consumption = 398;
-            break;
-
-        case Banana_pancakes:
-            printf("***  Banana Pancakes - 755 kcal  ***\n\n");
-            banana_pancakes();
-            consumption = 755;
-            break;
-    }
-
-    switch (h) {
-        case Banana:
-            printf(
-                "***  Banana and Peanut Butter Swirl Muffins - 1653 kcal  "
-                "***\n\n");
-            banana();
-            consumption = 1653;
-            break;
-
-        case Vegan:
-            printf("***  Vegan Protein Burrito - 1357 kcal  ***\n\n");
-            vegan();
-            consumption = 1357;
-            break;
-
-        case Breakfast_quesadillas:
-            printf("***  To-Go Breakfast Quesadillas - 1254 kcal  ***\n\n");
-            breakfast_quesadillas();
-            consumption = 1254;
-            break;
-    }
+    
 
     return consumption;
 }

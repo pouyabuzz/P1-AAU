@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int lunch_meal(int consumption);
+
 // recipes is from eatthismuch.com
 // lunch low kcal: 200 - 500 kcal, lunch medium kcal: 500 - 800 kcal, lunch high
 // kcal: 800 - 1500 kcal
