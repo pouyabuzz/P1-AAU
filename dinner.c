@@ -29,73 +29,72 @@ int dinner_meal(int consumption) {
 
     if (consumption <= 500) {
         l = (dinner_low_kcal)(rand() % 3);
+        switch (l) {
+            case Toast:
+                printf("***  Toast with Tomato and Hummus - 184 kcal  ***\n\n");
+                toast();
+                consumption -= 184;
+                break;
+
+            case Wrap:
+                printf("***  Chicken Wraps - 368 kcal  ***\n\n");
+                wrap();
+                consumption -= 368;
+                break;
+
+            case Shrimp:
+                printf("***  Pineapple Shrimp Salad - 339 kcal  ***\n\n");
+                shrimp();
+                consumption -= 339;
+                break;
+        }
     } else if (consumption <= 1200) {
         m = (dinner_med_kcal)(rand() % 3);
+        switch (m) {
+            case Chorizo:
+                printf(
+                    "***  Cheesy Chorizo Chicken and Spinach - 571 kcal  "
+                    "***\n\n");
+                chorizo();
+                consumption -= 571;
+                break;
+
+            case Quesadilla:
+                printf("***  Crispy Cheese Quesadilla - 733 kcal  ***\n\n");
+                quesadilla();
+                consumption -= 733;
+                break;
+
+            case BBQ:
+                printf("***  BBQ Chicken Pita Pizza - 656 kcal  ***\n\n");
+                bbqq();
+                consumption -= 656;
+                break;
+        }
     } else {
         h = (dinner_high_kcal)(rand() % 3);
-    }
+        switch (h) {
+            case Buffalo:
+                printf("***  Buffalo Chicken Salad - 1354 kcal  ***\n\n");
+                buffalo();
+                consumption -= 1354;
+                break;
 
-    switch (l) {
-        case Toast:
-            printf("***  Toast with Tomato and Hummus - 184 kcal  ***\n\n");
-            toast();
-            consumption -= 184;
-            break;
+            case Sausage:
+                printf(
+                    "***  Smoked Sausage Skillet with Peppers and Farro - 1882 "
+                    "kcal  ***\n\n");
+                sausage();
+                consumption -= 1882;
+                break;
 
-        case Wrap:
-            printf("***  Chicken Wraps - 368 kcal  ***\n\n");
-            wrap();
-            consumption -= 368;
-            break;
-
-        case Shrimp:
-            printf("***  Pineapple Shrimp Salad - 339 kcal  ***\n\n");
-            shrimp();
-            consumption -= 339;
-            break;
-    }
-
-    switch (m) {
-        case Chorizo:
-            printf(
-                "***  Cheesy Chorizo Chicken and Spinach - 571 kcal  ***\n\n");
-            chorizo();
-            consumption -= 571;
-            break;
-
-        case Quesadilla:
-            printf("***  Crispy Cheese Quesadilla - 733 kcal  ***\n\n");
-            quesadilla();
-            consumption -= 733;
-            break;
-
-        case BBQ:
-            printf("***  BBQ Chicken Pita Pizza - 656 kcal  ***\n\n");
-            bbqq();
-            consumption -= 656;
-            break;
-    }
-
-    switch (h) {
-        case Buffalo:
-            printf("***  Buffalo Chicken Salad - 1354 kcal  ***\n\n");
-            buffalo();
-            consumption -= 1354;
-            break;
-
-        case Sausage:
-            printf(
-                "***  Smoked Sausage Skillet with Peppers and Farro - 1882 "
-                "kcal  ***\n\n");
-            sausage();
-            consumption -= 1882;
-            break;
-
-        case Beef:
-            printf("***  Beef and Mushroom Stroganoff - 3008 kcal  ***\n\n");
-            beef();
-            consumption -= 3008;
-            break;
+            case Beef:
+                printf(
+                    "***  Beef and Mushroom Stroganoff - 3008 kcal  ***\n\n");
+                beef();
+                consumption -= 3008;
+                break;
+        }
     }
 
     return consumption;
