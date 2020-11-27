@@ -87,9 +87,9 @@ int lunch_meal(int consumption) {
                 break;
 
             case ham_and_salami_rollups1:
-                printf("***  Ham and Salami Roll-ups - 509 kcal  ***\n\n");
+                printf("***  Ham and Salami Roll-ups - 254 kcal  ***\n\n");
                 ham_and_salami_rollups();
-                consumption -= 509;
+                consumption -= 254;
                 break;
         }
 
