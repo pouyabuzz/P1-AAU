@@ -110,8 +110,8 @@ void toast() {
     printf(" - Hummus: 1/4 cup\n");
     printf(" - Tomatoes: 1 Italian tomato\n\n");
     printf(
-        " - Toast bread to your liking. Spread with hummus, then top with "
-        "sliced tomatoes.\n\n");
+        "Step 1:\n Toast bread to your liking. Spread with hummus, then top "
+        "with sliced tomatoes.\n\n");
 }
 
 void wrap() {
