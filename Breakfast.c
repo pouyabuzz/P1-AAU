@@ -13,22 +13,38 @@ void banana_pancakes();
 void banana();
 void vegan();
 void breakfast_quesadillas();
+void eggs ();
 void mealplan();
 
-typedef enum { Cinnamon, Onion, Vanilla } breakfast_low_kcal;
 
-typedef enum { Scramble, Feta_omelet, Banana_pancakes } breakfast_med_kcal;
+typedef enum { Cinnamon, Onion, } breakfast_low_kcal;
 
-typedef enum { Banana, Vegan, Breakfast_quesadillas } breakfast_high_kcal;
+typedef enum {Scramble, Feta_omelet } breakfast_low_med_kcal;
+
+typedef enum {Banana_pancakes, Banana } breakfast_med_kcal;
+
+typedef enum {Vanilla, Vegan } breakfast_high_med_kcal;
+
+typedef enum { Eggs, Breakfast_quesadillas } breakfast_high_kcal;
+
+// recipes is from eatthismuch.com
+// lunch low kcal: 200 - 400 kcal,
+// lunch low-medium: 400 - 600 kcal.
+// lunch medium kcal: 600 - 800 kcal.
+// lunch high_medium: 800 - 1000 kcal.
+// lunch high kcal: 1000 - 1200 kcal.
+
 
 int breakfast_meal(int consumption) {
     breakfast_low_kcal l;
+    breakfast_low_med_kcal lm;
     breakfast_med_kcal m = 0;
+    breakfast_high_med_kcal hm;
     breakfast_high_kcal h;
     srand(time(NULL));
 
-    if (consumption <= 500) {
-        l = (breakfast_low_kcal)(rand() % 3);
+    if (consumption <= 400) {
+        l = (breakfast_low_kcal)(rand() % 2);
         switch (l) {
             case Cinnamon:
                 printf("***  Cinnamon Protein Oats - 260 kcal  ***\n\n");
@@ -42,52 +58,71 @@ int breakfast_meal(int consumption) {
                 consumption = 300;
                 break;
 
-            case Vanilla:
-                printf("***  Vanilla Walnut Blueberry Yogurt - 485 kcal  ***\n\n");
-                vanilla();
-                consumption = 485;
-                break;
+    
         }
-
-    } else if (consumption <= 1200) {
-        m = (breakfast_med_kcal)(rand() % 3);
-        switch (m) {
+    }
+    else if (consumption <= 600) {
+        lm = (breakfast_low_med_kcal)(rand() % 2);
+        switch (lm) {
             case Scramble:
-                printf("***  Spinach Scramble - 388 kcal  ***\n\n");
+                printf("***  Spinach Scramble - 483 kcal  ***\n\n");
                 scramble();
-                consumption = 388;
+                consumption = 483;
                 break;
 
             case Feta_omelet:
                 printf(
-                    "***  Broccoli & Feta Omelet with Toast - 398 kcal  ***\n\n");
+                    "***  Broccoli & Feta Omelet with Toast - 490 kcal  ***\n\n");
                 feta_omelet();
-                consumption = 398;
+                consumption = 490;
                 break;
+        }
 
-            case Banana_pancakes:
+    } else if (consumption <= 800) {
+        m = (breakfast_med_kcal)(rand() % 2);
+        switch (m) {
+             case Banana_pancakes:
                 printf("***  Banana Pancakes - 755 kcal  ***\n\n");
                 banana_pancakes();
                 consumption = 755;
                 break;
-        }
-
-    } else {
-        h = (breakfast_high_kcal)(rand() % 3);
-        switch (h) {
+                
             case Banana:
                 printf(
-                    "***  Banana and Peanut Butter Swirl Muffins - 1653 kcal  "
+                    "***  Banana and Peanut Butter Swirl Muffins - 702 kcal  "
                     "***\n\n");
                 banana();
-                consumption = 1653;
+                consumption = 702;
+                break;
+        }
+
+    } else if (consumption <= 1000) {
+        hm = (breakfast_high_med_kcal)(rand() % 2);
+        switch (hm) {
+            case Vanilla:
+                printf("***  Vanilla Walnut Blueberry Yogurt - 947 kcal  ***\n\n");
+                vanilla();
+                consumption = 947;
                 break;
 
             case Vegan:
-                printf("***  Vegan Protein Burrito - 1357 kcal  ***\n\n");
+                printf("***  Vegan Protein Burrito - 817 kcal  ***\n\n");
                 vegan();
-                consumption = 1357;
+                consumption = 817;
                 break;
+            
+        }
+
+    } else {
+        h = (breakfast_high_kcal)(rand() % 2);
+        switch (h) {
+          
+            case Eggs:
+                printf("*** Spicy Fried Eggs - 1081 kcal  ***\n\n");
+                eggs();
+                consumption = 1081; 
+                break;
+            
 
             case Breakfast_quesadillas:
                 printf("***  To-Go Breakfast Quesadillas - 1254 kcal  ***\n\n");
@@ -145,11 +180,11 @@ void vanilla() {
 
     printf("***  5 mins to prep.  ***\n");
     printf(" Required ingredients: \n\n");
-    printf(" - Greek yogurt: 6 oz\n");
-    printf(" - Honey: 1 tsp\n");
-    printf(" - Vanilla extract: 1/2 tsp\n");
-    printf(" - Walnuts: 1 oz\n");
-    printf(" - Blueberries: 1/2 cup\n\n");
+    printf(" - Greek yogurt: 11 3/4 oz\n");
+    printf(" - Honey: 1 15/16 tsp\n");
+    printf(" - Vanilla extract: 1 tsp\n");
+    printf(" - Walnuts: 1 15/16 oz\n");
+    printf(" - Blueberries: 1 cup\n\n");
 
     printf("Step 1: Mix all ingredients together well. Enjoy!\n\n");
 }
@@ -160,12 +195,12 @@ void scramble() {
     printf("***  5 mins to prep, 10 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Pam cooking spray (oil): 2 spray , about 1/3 second\n");
-    printf(" - Cherry tomatoes: 1 cup cherry tomatoes\n");
-    printf(" - Spinach: 2 cup\n");
-    printf(" - Egg: 6 largen");
-    printf(" - Feta cheese: 3 oz\n");
-    printf(" - Basil: 2 tbsp, chopped\n");
+    printf(" - Pam cooking spray (oil): 1 1/4 spray , about 1/3 second\n");
+    printf(" - Cherry tomatoes: 5/8 cup cherry tomatoes\n");
+    printf(" - Spinach: 1 1/4 cup\n");
+    printf(" - Egg: 3 3/4 largen");
+    printf(" - Feta cheese: 1 7/8 oz\n");
+    printf(" - Basil: 1 1/4 tbsp, chopped\n");
 
     printf("Step 1: In a small nonstick pan coated with");
     printf("vegetable spray, sauté tomatoes and spinach");
@@ -186,12 +221,12 @@ void feta_omelet() {
     printf("***  5 mins to prep, 10 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Pam coocking spray (oil): 2 pray, about 1/3 second\n");
-    printf(" - Broccoli: 2 cup\n");
-    printf(" - Egg: 4 extra large\n");
-    printf(" - Feta cheese: 1/4 cup, crumbled\n");
-    printf(" - Dill weed: 1/2 tsp\n");
-    printf(" - Wheat bread: 4 slice\n\n");
+    printf(" - Pam coocking spray (oil): 1 1/4 spray, about 1/3 second\n");
+    printf(" - Broccoli: 1 1/4 cup\n");
+    printf(" - Egg: 2 7/16 extra large\n");
+    printf(" - Feta cheese: 1/8 cup, crumbled\n");
+    printf(" - Dill weed: 5/16 tsp\n");
+    printf(" - Wheat bread: 2 7/16 slice\n\n");
 
     printf("Step 1: Heat a non-stick skillet over medium heat. \n");
     printf("Coat pan with cooking spray. Add broccoli, and cook 3 minutes.");
@@ -235,18 +270,18 @@ void banana() {
 
     printf("***  0 mins to prep, 20 mins to cook  ***\n");
     printf("Required ingredients: \n");
-    printf(" - Pam cooking spray: 1 spray, about 1/3 second\n");
-    printf(" - Banana: 3 large (8'' to 8-7/8'' long)\n");
-    printf(" - Peanut butter: 1/3 cup\n");
-    printf(" - Almond milk: 1/2 Cup\n");
-    printf(" - Applesauce: 1/2 cup\n");
-    printf(" - Vanilla extract: 1 tsp\n");
-    printf(" - Whey protein powder: 1 scoop (30 g.)\n");
-    printf(" - Oatmeal: 1 cup\n");
-    printf(" - Baking powder: 1 tsp\n");
-    printf(" - Baking soda: 1/2 tsp\n");
-    printf(" - Cinnamon: 1/2 tsp\n");
-    printf(" - Peanut butter: 3 tbsp\n\n");
+    printf(" - Pam cooking spray: 7/16 spray, about 1/3 second\n");
+    printf(" - Banana: 1 1/4 large (8'' to 8-7/8'' long)\n");
+    printf(" - Peanut butter: 2 5/16 tbsp\n");
+    printf(" - Almond milk: 3 3/8 tbsp\n");
+    printf(" - Applesauce: 3 3/8 tbsp\n");
+    printf(" - Vanilla extract: 7/16 tsp\n");
+    printf(" - Whey protein powder: 7/16 scoop (30 g.)\n");
+    printf(" - Oatmeal: 7/16 cup\n");
+    printf(" - Baking powder: 7/16 tsp\n");
+    printf(" - Baking soda: 3/16 tsp\n");
+    printf(" - Cinnamon: 3/16 tsp\n");
+    printf(" - Peanut butter: 1 1/4 tbsp\n\n");
 
     printf(
         "Step 1- Preheat oven to 375 degrees F and spray non-stick 12 muffin "
@@ -271,19 +306,19 @@ void vegan() {
     printf("***  10 mins to prep, 20 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Tofu: 1 cup\n");
+    printf(" - Tofu: 274 g\n");
     printf(" - Olive oil: 1 tsp\n");
     printf(" - Garlic: 2 cloves minced\n");
     printf(" - Onions: 1 medium (2-1/2'' dia)\n");
-    printf(" - Potato: 1 1/2 cup, diced\n");
-    printf(" - Mushroom: 1 1/2 cup sliced\n");
-    printf(" - Nutritional Yeast: 4 tbsp\n");
+    printf(" - Potato: 1  cup, diced\n");
+    printf(" - Mushroom: 1  cup sliced\n");
+    printf(" - Nutritional Yeast: 2 tbsp\n");
     printf(" - Parsley: 2 tbsp\n");
     printf(" - Lemon juice: 2 tbsp\n");
     printf(" - Basil: 1 tbsp, leaves\n");
     printf(" - Salt: 1 dash\n");
     printf(" - Pepper: 1 dash\n");
-    printf(" - Tortillias: 4 tortilla (approx 7-8'' dia)\n\n");
+    printf(" - Tortillias: 3 tortilla (approx 7-8'' dia)\n\n");
 
     printf(
         "Step 1: Press tofu: Rinse the tofu with water and place a couple "
@@ -350,4 +385,25 @@ void breakfast_quesadillas() {
         "parsley,");
     printf(" and season to taste with salt and pepper.");
     printf(" Serve over cooked egg noodles. Enjoy!\n\n");
+}
+
+void eggs (){
+    //*https://www.eatthismuch.com/recipe/nutrition/spicy-fried-eggs,34940//*
+
+    printf("***  5 mins to prep, 10 mins to cook.  ***\n");
+    printf(" Required ingredients: \n\n");
+
+    printf(" - Parmesan cheese: 1/4 cup\n");
+    printf(" - Egg: 5 large\n");
+    printf(" - Tortillas: 5 pieces\n");
+    printf(" - Chilli powder: 2 tbsp\n");
+    printf(" - Olive oil: 2 tbsp\n");
+    printf(" - Salsa: 6 tbsp\n");
+
+    printf("Step 1: Heat oil over medium/low heat in a non stick pan.\n");
+    printf("Step 2: Add chili powder to oil and fry eggs.\n");
+    printf("Step 3: Heat tortillas in preferred manner\n");
+
+    printf("Step 4: Stack tortillas on a plate and top with fried eggs.\n");
+    printf("Step 5: Heat salsa in the egg pan and pour over eggs. Enjoy!\n");
 }

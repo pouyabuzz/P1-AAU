@@ -13,32 +13,42 @@ void sausage();
 void buffalo();
 void bbqq();
 void beef();
+void tuna();
 void mealplan();
 
-typedef enum { Toast, Wrap, Shrimp } dinner_low_kcal;
+typedef enum {Toast, Shrimp} dinner_low_kcal;
 
-typedef enum { Chorizo, Quesadilla, BBQ } dinner_med_kcal;
+typedef enum {Chorizo, Buffalo} dinner_low_med_kcal;
 
-typedef enum { Buffalo, Sausage, Beef } dinner_high_kcal;
+typedef enum {Quesadilla, Wrap} dinner_med_kcal;
+
+typedef enum {Sausage, BBQ} dinner_high_med_kcal;
+
+typedef enum {Beef, Tuna} dinner_high_kcal;
+
+// recipes is from eatthismuch.com
+// lunch low kcal: 200 - 400 kcal,
+// lunch low-medium: 400 - 600 kcal.
+// lunch medium kcal: 600 - 800 kcal.
+// lunch high_medium: 800 - 1000 kcal.
+// lunch high kcal: 1000 - 1200 kcal.
 
 int dinner_meal(int consumption) {
+    
     dinner_low_kcal l;
+    dinner_low_med_kcal lm;
     dinner_med_kcal m;
+    dinner_high_med_kcal hm;
     dinner_high_kcal h;
+
     srand(time(NULL));
 
-    if (consumption <= 500) {
-        l = (dinner_low_kcal)(rand() % 3);
+    if (consumption <= 400) {
+        l = (dinner_low_kcal)(rand() % 2);
         switch (l) {
             case Toast:
-                printf("***  Toast with Tomato and Hummus - 184 kcal  ***\n\n");
+                printf("***  Toast with Tomato and Hummus - 368 kcal  ***\n\n");
                 toast();
-                consumption -= 184;
-                break;
-
-            case Wrap:
-                printf("***  Chicken Wraps - 368 kcal  ***\n\n");
-                wrap();
                 consumption -= 368;
                 break;
 
@@ -48,16 +58,28 @@ int dinner_meal(int consumption) {
                 consumption -= 339;
                 break;
         }
-    } else if (consumption <= 1200) {
-        m = (dinner_med_kcal)(rand() % 3);
-        switch (m) {
-            case Chorizo:
-                printf(
-                    "***  Cheesy Chorizo Chicken and Spinach - 571 kcal  "
-                    "***\n\n");
+    }
+
+    else if(consumption <= 600){
+        lm = (dinner_low_med_kcal)(rand() % 2);
+                
+        case Chorizo:
+                printf("***  Cheesy Chorizo Chicken and Spinach - 571 kcal  ""***\n\n");
                 chorizo();
                 consumption -= 571;
                 break;
+
+        case Buffalo:
+                printf("***  Buffalo Chicken Salad - 529 kcal  ***\n\n");
+                buffalo();
+                consumption -= 529;
+                break;
+    } 
+
+    else if (consumption <= 800) {
+        m = (dinner_med_kcal)(rand() % 2);
+        switch (m) {
+            
 
             case Quesadilla:
                 printf("***  Crispy Cheese Quesadilla - 733 kcal  ***\n\n");
@@ -65,34 +87,47 @@ int dinner_meal(int consumption) {
                 consumption -= 733;
                 break;
 
-            case BBQ:
-                printf("***  BBQ Chicken Pita Pizza - 656 kcal  ***\n\n");
-                bbqq();
-                consumption -= 656;
+            case Wrap:
+                printf("***  Chicken Wraps - 736 kcal  ***\n\n");
+                wrap();
+                consumption -= 736;
                 break;
         }
-    } else {
-        h = (dinner_high_kcal)(rand() % 3);
-        switch (h) {
-            case Buffalo:
-                printf("***  Buffalo Chicken Salad - 1354 kcal  ***\n\n");
-                buffalo();
-                consumption -= 1354;
-                break;
+    } 
+
+    else if (consumption <= 1000) {
+        hm = (dinner_high_med_kcal)(rand() % 2);
+        switch (hm) {
 
             case Sausage:
                 printf(
-                    "***  Smoked Sausage Skillet with Peppers and Farro - 1882 "
+                    "***  Smoked Sausage Skillet with Peppers and Farro - 941 "
                     "kcal  ***\n\n");
                 sausage();
-                consumption -= 1882;
+                consumption -= 941;
                 break;
 
+            case BBQ:
+                printf("***  BBQ Chicken Pita Pizza - 982 kcal  ***\n\n");
+                bbqq();
+                consumption -= 982;
+                break;
+        }
+    }
+
+    else {
+        h = (dinner_high_kcal)(rand() % 2);
+        switch (h){
             case Beef:
-                printf(
-                    "***  Beef and Mushroom Stroganoff - 3008 kcal  ***\n\n");
+                printf("***  Beef and Mushroom Stroganoff - 1161 kcal  ***\n\n");
                 beef();
-                consumption -= 3008;
+                consumption -= 1161;
+                break;
+
+            case Tuna:
+                printf("***  Pasta with Tuna and Tomato Sauce - 1146 kcal  ***\n\n");
+                tuna();
+                consumption -= 1146;
                 break;
         }
     }
@@ -106,9 +141,9 @@ void toast() {
     printf("***  5 mins to prep.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Whole-wheat bread: 1 slice \n");
-    printf(" - Hummus: 1/4 cup\n");
-    printf(" - Tomatoes: 1 Italian tomato\n\n");
+    printf(" - Whole-wheat bread: 2 slice \n");
+    printf(" - Hummus: 1/2 cup\n");
+    printf(" - Tomatoes: 2 Italian tomato\n\n");
     printf(
         "Step 1:\n Toast bread to your liking. Spread with hummus, then top "
         "with sliced tomatoes.\n\n");
@@ -120,12 +155,12 @@ void wrap() {
     printf("***  10 mins to prep, 20 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Chicken breast: 1/2 breast, bone and skin removed\n");
-    printf(" - Lettuce (chopped): 2 leaf outer \n");
-    printf(" - Parmesan cheese (grated): 1 tbsp\n");
-    printf(" - Tomatoes: 1/2 medium whole\n");
-    printf(" - Light mayonnaise: 1 tbsp\n");
-    printf(" - Tortillas: 1 tortilla\n\n");
+    printf(" - Chicken breast: 1 breast, bone and skin removed\n");
+    printf(" - Lettuce (chopped): 4 leaf outer \n");
+    printf(" - Parmesan cheese (grated): 2 tbsp\n");
+    printf(" - Tomatoes: 1 medium whole\n");
+    printf(" - Light mayonnaise: 2 tbsp\n");
+    printf(" - Tortillas: 2 tortilla\n\n");
 
     printf("Step 1:\n Preheat oven to 400 degrees F.");
     printf("Place chicken on a foil lined pan and bake for");
@@ -204,7 +239,7 @@ void quesadilla() {
     printf("***  5 mins to prep, 10 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Pam coocking spray (Oil): 2 pray, about 1/3 second\n");
+    printf(" - Pam coocking spray (Oil): 2 spray, about 1/3 second\n");
     printf(" - Cheddar cheese: 1 cup, shredded\n");
     printf(" - Tortillas: 2 tortilla\n\n");
 
@@ -259,17 +294,17 @@ void buffalo() {
     // https://www.eatthismuch.com/recipe/nutrition/buffalo-chicken-salad,921302/
 
     printf("***  10 mins to prep, 10 mins to cook  ***\n");
-    printf("Required ingredients: \n - Lettuce: 2 heads\n");
-    printf(" - Carrots: 1 cup grated\n");
-    printf(" - Celery: 2 stalk, small (5 inch long)\n");
-    printf(" - Ranch dressing: 1/2 Cup\n");
-    printf(" - Blue cheese: 1/2 cup, crumbled, not packed\n");
-    printf(" - Vegetable oil: 1 tbsp\n");
-    printf(" - Butter: 2 tbsp\n");
-    printf(" - Chicken breast: 1 breast, bone and skin removed\n");
-    printf(" - Pepper or hot sauce: 4 tbsp\n");
-    printf(" - Salt: 1 dash\n");
-    printf(" - Pepper: 1 dash\n\n");
+    printf("Required ingredients: \n - Lettuce: 3/4 heads\n");
+    printf(" - Carrots: 3/8 cup grated\n");
+    printf(" - Celery: 3/4 stalk, small (5 inch long)\n");
+    printf(" - Ranch dressing: 3 1/8 Cup\n");
+    printf(" - Blue cheese: 3/16 cup, crumbled, not packed\n");
+    printf(" - Vegetable oil: 3/8 tbsp\n");
+    printf(" - Butter: 3/4 tbsp\n");
+    printf(" - Chicken breast: 3/8 breast, bone and skin removed\n");
+    printf(" - Pepper or hot sauce: 2 tbsp\n");
+    printf(" - Salt: 3/8 dash\n");
+    printf(" - Pepper: 3/8 dash\n\n");
 
     printf("Step 1- Preheat a skillet over medium-high heat.\n");
     printf("Step 2- Combine chopped lettuce, carrots, and celery");
@@ -290,15 +325,15 @@ void sausage() {
     printf("***  5 mins to prep, 20 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Farro: 2 cup\n");
-    printf(" - Onions: 1 medium\n");
-    printf(" - Red bell pepper: 2 medium\n");
-    printf(" - Sausage: 8 oz\n");
-    printf(" - Olive oil: 1 tbsp\n");
-    printf(" - Tomatoes: 1 can\n");
-    printf(" - Oregano: 1/2 tsp, leaves\n");
-    printf(" - Pepper: 10 dash\n");
-    printf(" - Parsley: 3 sprig\n\n");
+    printf(" - Farro: 1 cup\n");
+    printf(" - Onions: 1/2 medium\n");
+    printf(" - Red bell pepper: 1 medium\n");
+    printf(" - Sausage: 4 oz\n");
+    printf(" - Olive oil: 1/2 tbsp\n");
+    printf(" - Tomatoes: 1/2 can\n");
+    printf(" - Oregano: 1/4 tsp, leaves\n");
+    printf(" - Pepper: 5 dash\n");
+    printf(" - Parsley: 1 1/2 sprig\n\n");
 
     printf("Step 1: Prepare farro as per package directions.\n");
     printf("Step 2: Thinly slice the onions and bell peppers.");
@@ -322,18 +357,17 @@ void beef() {
     printf("***  10 mins to prep, 20 mins to cook.  ***\n");
     printf(" Required ingredients: \n\n");
 
-    printf(" - Onions: 1 large\n");
-    printf(" - Parsley: 1/4 cup\n");
-    printf(" - Mushrooms: 3 cup diced\n");
-    printf(" - Egg noodles: 8 oz\n");
-    printf(" - Butter: 3 tbsp\n");
-    printf(" - Beef tenderloin: 16 oz\n");
-    printf(" - Vegetable Broth: 1 1/2 cup\n");
-    printf(" - Sour cream: 1 1/2 cup\n");
-    printf(" - Wheat flour: 3 tbsp\n\n");
+    printf(" - Onions: 3/8 large\n");
+    printf(" - Parsley:  1 1/2 tbsp \n");
+    printf(" - Mushrooms: 1 3/16 cup diced\n");
+    printf(" - Egg noodles: 3 1/16 oz\n");
+    printf(" - Butter: 1 3/16 tbsp\n");
+    printf(" - Beef tenderloin: 6 3/16 oz\n");
+    printf(" - Vegetable Broth: 9/16/8 cup\n");
+    printf(" - Sour cream: 9/16 cup\n");
+    printf(" - Wheat flour: 1 3/16 tbsp\n\n");
 
-    printf(
-        "Step 1: Coarsely chop onion and parsley. Slice mushrooms evenly.\n");
+    printf("Step 1: Coarsely chop onion and parsley. Slice mushrooms evenly.\n");
     printf("Step 2: Bring a large pot of lightly salted water to a boil.");
     printf(" Add egg noodles,");
     printf(" and cook until al dente, about 7 minutes.");
@@ -362,4 +396,42 @@ void beef() {
         "parsley,");
     printf(" and season to taste with salt and pepper.");
     printf(" Serve over cooked egg noodles. Enjoy!\n\n");
+}
+
+void Tuna (){
+    //*https://www.eatthismuch.com/recipe/nutrition/pasta-with-tuna-and-tomato-sauce,57155/*//
+    
+    printf("***  5 mins to prep, 35 mins to cook.  ***\n");
+    printf(" Required ingredients: \n\n");
+
+    printf(" - Pasta: 170 g\n");
+    printf(" - Tomatoes: 3/4 can \n");
+    printf(" - Butter: 1 1/2 tbsp\n");
+    printf(" - Parmesan cheese: 3 3/4 tbsp\n");
+    printf(" - Tuna: 2 1/4 oz\n");
+    printf(" - Ricotta cheese: 3/16 cup\n");
+    printf(" - Salt: 3/8 dash\n");
+    printf(" - Basil: 1/16 cup leaves, whole\n");
+
+    printf("Step 1: Chop or tear fresh basil.\n");
+    printf("Step 2: Melt the butter in a medium pot on medium heat and add the can");
+    printf(" of tomatoes, including the juice. If you are using whole canned ");
+    printf("tomatoes (or fresh ones) crush them with your (clean)");
+    printf(" fingers as you put them in the pot. Simmer gently, partially covered,");
+    printf(" for 30 minutes.\n");
+    printf("Step 3: Once the sauce is cooking, heat a large pot of well salted");
+    printf(" water to a strong boil. Add the shell pasta to the boiling");
+    printf(" water and cook at a vigorous boil, uncovered, until al dente,");
+    printf(" cooked through but still a bit firm to the bite, which is");
+    printf(" usually whatever the time specified on the pasta package");
+    printf(" minus about 2 minutes. Drain and set aside.\n");
+    printf("Step 4: Pour off the excess oil from the tuna can and stir the tuna");
+    printf(" into the tomato sauce. Add the ricotta cheese, and add salt");
+    printf(" to taste. Turn off the heat. Mix the sauce with the pasta in a");
+    printf(" large bowl. Mix in the basil.\n");
+    printf("Step 5: Pour the pasta into a 2 to 3-quart casserole dish and top");
+    printf(" with the parmesan cheese. Put under a hot broiler for 4-6");
+    printf(" minutes, until the cheese is melted and lightly browned.");
+    printf(" Serve hot. Enjoy!\n\n");
+
 }
