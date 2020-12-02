@@ -62,18 +62,19 @@ int dinner_meal(int consumption) {
 
     else if(consumption <= 600){
         lm = (dinner_low_med_kcal)(rand() % 2);
-                
-        case Chorizo:
-                printf("***  Cheesy Chorizo Chicken and Spinach - 571 kcal  ""***\n\n");
-                chorizo();
-                consumption -= 571;
-                break;
+        switch(lm) {
+            case Chorizo:
+                    printf("***  Cheesy Chorizo Chicken and Spinach - 571 kcal  ""***\n\n");
+                    chorizo();
+                    consumption -= 571;
+                    break;
 
-        case Buffalo:
-                printf("***  Buffalo Chicken Salad - 529 kcal  ***\n\n");
-                buffalo();
-                consumption -= 529;
-                break;
+            case Buffalo:
+                    printf("***  Buffalo Chicken Salad - 529 kcal  ***\n\n");
+                    buffalo();
+                    consumption -= 529;
+                    break;
+        }
     } 
 
     else if (consumption <= 800) {
@@ -398,7 +399,7 @@ void beef() {
     printf(" Serve over cooked egg noodles. Enjoy!\n\n");
 }
 
-void Tuna (){
+void tuna (){
     //*https://www.eatthismuch.com/recipe/nutrition/pasta-with-tuna-and-tomato-sauce,57155/*//
     
     printf("***  5 mins to prep, 35 mins to cook.  ***\n");
