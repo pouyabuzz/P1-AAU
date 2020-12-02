@@ -95,14 +95,7 @@ int breakfast_meal(int consumption) {
                 consumption = 1254;
                 break;
         }
-
-    }
-
-    
-
-    
-
-    
+    }    
 
     return consumption;
 }
