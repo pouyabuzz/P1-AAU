@@ -11,7 +11,7 @@ void run_program();
 void empty_stdin();
 void man_or_woman(int *gender, int *age, double *weight, double *height);
 void bmi_calculator(double weight, double height, double *bmi);
-void bmi_recommend(double *bmi, int gender);
+void bmi_recommend(double *bmi);
 void bmr_calculator(int gender, double *bmr, double weight, double height,
                     int age);
 void consumption_func(double bmr, int *consumption, double activity_level);
@@ -30,7 +30,7 @@ void run_program() {
 
     man_or_woman(&gender, &age, &weight, &height);
     bmi_calculator(weight, height, &bmi);
-    bmi_recommend(&bmi, gender);
+    bmi_recommend(&bmi);
     bmr_calculator(gender, &bmr, weight, height, age);
     activity(&activity_level);
     consumption_func(bmr, &consumption, activity_level);
@@ -115,35 +115,20 @@ void bmi_calculator(double weight, double height, double *bmi) {
     *bmi = weight / ((height / 100) * (height / 100));
     printf("Your BMI is %.2f \n", *bmi);
 }
-void bmi_recommend(double *bmi,  int gender) {
-    if (gender == 2){
-        if(*bmi > 25) {
-            printf("In relation to your BMI and with a general health perspective,\n");
-            printf("it is our recommendation that you lose weight.");
-        }
-        else if(*bmi >= 18.5 && *bmi <= 25) {
-            printf("In relation to your BMI and with a general health perspective,\n");
-            printf("it is our recommendation that you maintain weight.");
-        }
-        else if(*bmi < 18.5){
-            printf("In relation to your BMI and with a general health perspective,\n");
-            printf("it is our recommendation that you gain weight.");
-        }
-    }
-    else if (gender == 1) {
-        if(*bmi > 25) {
-            printf("In relation to your BMI and with a general health perspective,\n");
-            printf("it is our recommendation that you lose weight.");
-        }
-        else if(*bmi >= 18.5 && *bmi <=25 ) {
-            printf("In relation to your BMI and with a general health perspective,\n");
-            printf("it is our recommendation that you maintain weight.");
-        }
-        else if(*bmi < 18.5){
-            printf("In relation to your BMI and with a general health perspective,\n");
-            printf("it is our recommendation that you gain weight.");
-            printf("Your bmi is %f", *bmi);
-        }
+void bmi_recommend(double *bmi) {
+    if (*bmi > 25) {
+        printf(
+            "In relation to your BMI and with a general health perspective,\n");
+        printf("it is our recommendation that you lose weight.");
+    } else if (*bmi >= 18.5 && *bmi <= 25) {
+        printf(
+            "In relation to your BMI and with a general health perspective,\n");
+        printf("it is our recommendation that you maintain weight.");
+    } else if (*bmi < 18.5) {
+        printf(
+            "In relation to your BMI and with a general health perspective,\n");
+        printf("it is our recommendation that you gain weight.");
+        printf("Your bmi is %f", *bmi);
     }
 }
 void bmr_calculator(int gender, double *bmr, double weight, double height,
