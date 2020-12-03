@@ -239,6 +239,7 @@ void turkey_sandwiches() {
 void ham_and_salami_rollups() {
     // https://www.eatthismuch.com/recipe/nutrition/ham-and-salami-roll-ups,905886/
 
+    printf("***  5 mins to prep, 0 mins to cook.  ***\n");
     printf(" Required Ingredients: \n\n - 3 5/8 tbsp/54 grams Hummus\n");
     printf(" - 3 5/8 oz/101 grams Italian salami\n");
     printf(" - 3 5/8 oz/98 grams Roasted Red Peppers\n");
@@ -252,6 +253,7 @@ void ham_and_salami_rollups() {
 void almond_mango_protein_shake() {
 // https://www.eatthismuch.com/recipe/nutrition/almond-mango-protein-shake,906854/
 
+    printf("***  5 mins to prep, 0 mins to cook.  ***\n");
     printf("***  Almond Mango Protein Shake(911 calories)  ***\n\n");
     printf(" Required Ingredients: \n\n - 3 3/4 cup, sliced/619 grams Mango\n");
     printf(" - 3 scoop(30g)/90 grams Whey protein powder\n");
@@ -263,6 +265,8 @@ void almond_mango_protein_shake() {
 
 void apricot_jam_and_almond_butter_sandwich() {
 // https://www.eatthismuch.com/recipe/nutrition/apricot-jam-and-almond-butter-sandwich,907177/
+   
+    printf("***  7 mins to prep, 0 mins to cook.  ***\n");
     printf(
         "***  Apricot Jam and Almond Butter Sandwich(875 calories)  ***\n\n");
     printf(
@@ -280,6 +284,7 @@ void apricot_jam_and_almond_butter_sandwich() {
 void roast_beef_and_cheddar_sandwich() {
 // https://www.eatthismuch.com/recipe/nutrition/roast-beef-and-cheddar-sandwich,906002/
 
+    printf("***  5 mins to prep, 0 mins to cook.  ***\n");
     printf("***  Roast Beef and Cheddar Sandwich(900 calories)  ***\n\n");
     printf(
         " Required Ingredients: \n\n - 4 13/16 slice/134 grams Whole-wheat bread\n");
