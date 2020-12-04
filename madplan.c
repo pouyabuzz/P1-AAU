@@ -238,15 +238,15 @@ void mealplan(int consumption) {
     printf("\n\n");
     printf(" For Breakfast: \n\n");
     lunch = consumption - breakfast_meal(breakfast);
-    printf("Efter morgenmad %d\n", lunch);
+    printf("Calories left after breakfast: %d\n", lunch);
 
     printf("\n\n");
     printf(" For Lunch: \n\n");
     dinner = lunch_meal(lunch);
-    printf("Efter frokost %d\n", dinner);
+    printf("Calories left after lunch: %d\n", dinner);
 
     printf("\n\n");
     printf(" For Dinner: \n\n");
     kcal_left = dinner_meal(dinner);
-    printf("Resterende kcal %d\n", kcal_left);
+    printf("Calories left: %d\n", kcal_left);
 }
