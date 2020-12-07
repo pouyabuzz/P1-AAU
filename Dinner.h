@@ -1,11 +1,3 @@
+struct recipes *read_file_dinner();
+struct recipes *allocate_struct_dinner();
 int dinner_meal(int consumption);
-void toast();
-void wrap();
-void chorizo();
-void shrimp();
-void quesadilla();
-void sausage();
-void buffalo();
-void bbqq();
-void beef();
-void mealplan();

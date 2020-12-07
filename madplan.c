@@ -229,24 +229,23 @@ void consumption_func(double bmr, int *consumption, double activity_level) {
 }
 
 void mealplan(int consumption) {
-    int breakfast, lunch, dinner, kcal_left;
+      int breakfast, lunch;
 
-    /*int total = lunch + dinner;
-    total = consumption;*/
     breakfast = consumption / 3;
 
     printf("\n\n");
     printf(" For Breakfast: \n\n");
-    lunch = consumption - breakfast_meal(breakfast);
-    printf("Calories left after breakfast: %d\n", lunch);
+    consumption -= breakfast_meal(breakfast);
+    lunch = consumption/2;
+    printf("Calories left after breakfast: %d\n", lunch * 2);
 
     printf("\n\n");
     printf(" For Lunch: \n\n");
-    dinner = lunch_meal(lunch);
-    printf("Calories left after lunch: %d\n", dinner);
+    consumption -= lunch_meal(lunch);
+    printf("Calories left after lunch: %d\n", consumption);
 
     printf("\n\n");
-    printf(" For Dinner: \n\n");
-    kcal_left = dinner_meal(dinner);
-    printf("Calories left: %d\n", kcal_left);
+    printf(" For Dinner: \n\n"); 
+    consumption -= dinner_meal(consumption);
+    printf("Calories left: %d\n", consumption);
 }

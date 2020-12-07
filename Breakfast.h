@@ -1,11 +1,3 @@
+struct recipes *read_file_breakfast();
+struct recipes *allocate_struct_breakfast();
 int breakfast_meal(int consumption);
-void cinnamon();
-void onion();
-void vanilla();
-void scramble();
-void feta_omelet();
-void banana_pancakes();
-void banana();
-void vegan();
-void breakfast_quesadillas();
-void mealplan();
