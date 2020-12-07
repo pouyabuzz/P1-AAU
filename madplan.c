@@ -253,6 +253,6 @@ void mealplan(int consumption) {
     }
     if(consumption > 0){
         consumption = (consumption * (-1));
-        printf("Calories behind: %d\n", consumption);
+        printf("Calories left: %d\n", consumption);
     }
 }
