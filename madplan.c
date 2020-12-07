@@ -247,5 +247,12 @@ void mealplan(int consumption) {
     printf("\n\n");
     printf(" For Dinner: \n\n"); 
     consumption -= dinner_meal(consumption);
-    printf("Calories left: %d\n", consumption);
+    if(consumption < 0){
+        consumption = (consumption * (-1));
+        printf("Calories exceeded with: %d\n", consumption);
+    }
+    if(consumption > 0){
+        consumption = (consumption * (-1));
+        printf("Calories behind: %d\n", consumption);
+    }
 }
