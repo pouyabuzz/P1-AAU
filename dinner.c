@@ -127,6 +127,7 @@ int dinner_meal(int consumption){
        }while(!(consumption == recipes_array[i].kcal));
     }
     return consumption;
+    free(allocate_struct_dinner);
 }
 
 struct recipes *read_file_dinner(){
