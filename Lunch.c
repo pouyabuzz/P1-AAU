@@ -6,7 +6,7 @@
 #include <time.h>
 
 #define MAX_char 2000
-#define MAX_ING 20
+#define MAX_ROWS 20
 #define NR_RECIPES 11
 
 // recipes is from eatthismuch.com
@@ -25,9 +25,9 @@ struct recipes {
     char name[MAX_char];
     char time[MAX_char];
     int nr_ing;
-    char ingrediens[MAX_ING][MAX_char];
+    char ingrediens[MAX_ROWS][MAX_char];
     int nr_steps;
-    char steps[MAX_char][MAX_char];
+    char steps[MAX_ROWS][MAX_char];
 };
 
 /*int main(void){
