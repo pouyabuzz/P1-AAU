@@ -5,8 +5,13 @@
 #include <string.h>
 #include <time.h>
 
+<<<<<<< Updated upstream
 #define MAX_char 2000
 #define MAX_ROWS 20
+=======
+#define MAX_CHAR 2000
+#define MAX_ING  20
+>>>>>>> Stashed changes
 #define NR_RECIPES 10
 
 // recipes is from eatthismuch.com
@@ -22,12 +27,18 @@ int dinner_meal(int consumption);*/
 
 struct recipes {
     int kcal;
-    char name[MAX_char];
-    char time[MAX_char];
+    char name[MAX_CHAR];
+    char time[MAX_CHAR];
     int nr_ing;
+<<<<<<< Updated upstream
     char ingrediens[MAX_ROWS][MAX_char];
     int nr_steps;
     char steps[MAX_ROWS][MAX_char];
+=======
+    char ingrediens[MAX_ING][MAX_CHAR];
+    int nr_steps;
+    char steps[MAX_CHAR][MAX_CHAR];
+>>>>>>> Stashed changes
 };
 
 /*int main(void){
