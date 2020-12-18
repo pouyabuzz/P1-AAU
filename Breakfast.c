@@ -7,7 +7,7 @@
 
 #define MAX_char 2000
 #define MAX_ROWS 20
-#define NR_RECIPES 10
+#define NR_RECIPES 20
 
 // recipes is from eatthismuch.com
 // breakfast low kcal: 200 - 400 kcal,
@@ -15,10 +15,6 @@
 // breakfast medium kcal: 600 - 800 kcal.
 // breakfast high_medium: 800 - 1000 kcal.
 // breakfast high kcal: 1000 - 1200 kcal.
-
-/*struct recipes *read_file();
-struct recipes *allocate_struct();
-int breakfast_meal(int consumption);*/
 
 struct recipes {
     int kcal;
@@ -30,20 +26,18 @@ struct recipes {
     char steps[MAX_ROWS][MAX_char];
 };
 
-/*int main(void){
-    int a;
-    printf("consumption: ");
-    scanf("%d", &a);
-    breakfast_meal(a);
-}*/
-
+/* Chooses a recipe */
 int breakfast_meal(int consumption) {
+    /* Used for choosing a random number */
     srand(time(NULL));
+
+    /* Random number is used to check a recipe in breakfast_recipes.txt */
     int j, i = (rand() % NR_RECIPES);
     struct recipes *recipes_array = read_file_breakfast();
 
     if (consumption <= 400) {
         do {
+            /* Checks if recipe fulfils the requirements */
             if (recipes_array[i].kcal >= 200 && recipes_array[i].kcal <= 400) {
                 printf("Kcal: %d\n%s\n%s\n", recipes_array[i].kcal,
                        recipes_array[i].name, recipes_array[i].time);
@@ -58,7 +52,8 @@ int breakfast_meal(int consumption) {
             } else {
                 i = (rand() % NR_RECIPES);
             }
-        } while (consumption != recipes_array[i].kcal);
+        } /* Loops while consumption is different from recipe's calorie value */
+        while (consumption != recipes_array[i].kcal);
 
     } else if (consumption <= 600) {
         do {
@@ -133,15 +128,19 @@ int breakfast_meal(int consumption) {
             }
         } while (consumption != recipes_array[i].kcal);
     }
+    /* Returns chosen recipe's calorie value */
     return consumption;
+    /* Frees allocated memory from heap */
     free(recipes_array);
 }
 
+/* Scans recipes from txt-file into array of structs */
 struct recipes *read_file_breakfast() {
     struct recipes *recipes_array = allocate_struct_breakfast();
     int i, j = 0;
     char line[2000];
 
+    /* Opens txt-file with recipes */
     FILE *f = fopen("breakfast_recipes.txt", "r");
     if (f == NULL) {
         printf("File cannot open");
@@ -170,14 +169,16 @@ struct recipes *read_file_breakfast() {
         j = 0;
     }
 
+    /* Closes txt-file */
     fclose(f);
     return recipes_array;
 }
 
+/* Allocates space in the heap for array of structs */
 struct recipes *allocate_struct_breakfast() {
-    struct recipes *recipes_array = malloc(20 * sizeof(struct recipes));
+    struct recipes *recipes_array = malloc(NR_RECIPES * sizeof(struct recipes));
     if (recipes_array == NULL) {
-        printf("kan ikke allokere nok hukommelse. Farvel\n");
+        printf("There is not enough memory. Bye\n");
         exit(EXIT_FAILURE);
     }
     return recipes_array;
