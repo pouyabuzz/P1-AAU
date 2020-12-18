@@ -21,7 +21,7 @@ void mealplan(int consumption);
 int main() {
     printf(
         "DISCLAIMER: Generated mealplan is for guidance only.\nPlease see an "
-        "expert if you have any servere health issues\n\n");
+        "expert if you have any severe health issues\n\n");
     run_program();
     return 0;
 }
