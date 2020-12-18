@@ -5,18 +5,9 @@
 #include <string.h>
 #include <time.h>
 
-<<<<<<< Updated upstream
-#define MAX_char 2000
-#define MAX_ROWS 20
-<<<<<<< HEAD
-#define NR_RECIPES 20
-=======
-=======
 #define MAX_CHAR 2000
-#define MAX_ING  20
->>>>>>> Stashed changes
-#define NR_RECIPES 10
->>>>>>> 8514c59396b8407f94a65f043480e8a4a8e27688
+#define MAX_ROWS 20
+#define NR_RECIPES 20
 
 // recipes is from eatthismuch.com
 // breakfast low kcal: 200 - 400 kcal,
@@ -30,15 +21,9 @@ struct recipes {
     char name[MAX_CHAR];
     char time[MAX_CHAR];
     int nr_ing;
-<<<<<<< Updated upstream
-    char ingrediens[MAX_ROWS][MAX_char];
+    char ingrediens[MAX_ROWS][MAX_CHAR];
     int nr_steps;
-    char steps[MAX_ROWS][MAX_char];
-=======
-    char ingrediens[MAX_ING][MAX_CHAR];
-    int nr_steps;
-    char steps[MAX_CHAR][MAX_CHAR];
->>>>>>> Stashed changes
+    char steps[MAX_ROWS][MAX_CHAR];
 };
 
 /* Chooses a recipe */
